@@ -8,7 +8,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final historyData = Provider.of<HistoryData>(context);
+    final history = Provider.of<HistoryData>(context);
 
     return Scaffold(
       body: Container(
@@ -18,12 +18,7 @@ class Home extends StatelessWidget {
 
             Container(
               child: ListTile(
-                title: Text(
-                    "Истории",
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold)
-                ),
+                title: Text("Истории", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               ),
             ),
 
@@ -32,8 +27,8 @@ class Home extends StatelessWidget {
               height: 150,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: historyData.items.length,
-                  itemBuilder: (context, int index) => ChangeNotifierProvider.value(value: historyData.items[index], child: ItemCard())
+                  itemCount: history.items.length,
+                  itemBuilder: (context, int index) => ChangeNotifierProvider.value(value: history.items[index], child: ItemCard())
               ),
             )
           ],
